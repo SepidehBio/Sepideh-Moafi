@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>About | Sepideh Moafi</title>
+    <meta name="description" content="About Sepideh Moafi — computational researcher working across AI, computational neuroscience, and research software engineering.">
+    <meta name="author" content="Sepideh Moafi">
+
+    <link rel="canonical" href="https://sepideh-Moafi.github.io/about.html">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sepideh-Moafi.github.io/about.html">
+    <meta property="og:title" content="About | Sepideh Moafi">
+    <meta property="og:description" content="Computational researcher working across AI, computational neuroscience, and research software engineering.">
+
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>SK</text></svg>">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = { theme: { extend: { fontFamily: { inter: ['Inter', 'sans-serif'] } } } }
+    </script>
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0f172a; }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #8b5cf6, #06b6d4);
+            border-radius: 10px;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glass-hover:hover {
+            background: rgba(255, 255, 255, 0.07);
+            border-color: rgba(139, 92, 246, 0.25);
+            transform: translateY(-2px);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #c4b5fd, #22d3ee);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .glow { box-shadow: 0 0 30px rgba(139, 92, 246, 0.3); }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+        @media (prefers-reduced-motion: reduce) {
+            .fade-in { opacity: 1; transform: none; transition: none; }
+            html { scroll-behavior: auto; }
+        }
+
+        .nav-link.active { color: #c4b5fd; }
+
+        a:focus-visible, button:focus-visible {
+            outline: 2px solid #a78bfa;
+            outline-offset: 3px;
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-white">
+
+    <a href="#top" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-purple-600 text-white px-4 py-2 rounded z-50">
+        Skip to content
+    </a>
+
+    <!-- Header -->
+    <header class="fixed top-0 w-full z-50 glass">
+        <div class="max-w-6xl mx-auto px-5 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-lg font-semibold tracking-tight">
+                <span class="text-white">Sepideh</span> <span class="gradient-text">Karimi</span>
+            </a>
+
+            <nav class="hidden md:flex items-center gap-7 text-sm font-medium">
+                <a href="index.html" class="nav-link hover:text-purple-300 transition">Home</a>
+                <a href="academic.html" class="nav-link hover:text-purple-300 transition">Academic</a>
+                <a href="industry.html" class="nav-link hover:text-purple-300 transition">Industry</a>
+                <a href="projects.html" class="nav-link hover:text-purple-300 transition">Projects</a>
+                <a href="publications.html" class="nav-link hover:text-purple-300 transition">Publications</a>
+                <a href="about.html" class="nav-link active hover:text-purple-300 transition">About</a>
+                <a href="contact.html" class="px-5 py-2 bg-gradient-to-r from-purple-600 to-cyan-500 rounded-full text-sm font-semibold hover:opacity-90 transition">
+                    Contact
+                </a>
+            </nav>
+
+            <button id="menu-btn" class="md:hidden p-2 rounded-lg hover:bg-white/10 transition" aria-label="Open menu">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+            </button>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full glass border-t border-white/10">
+            <nav class="max-w-6xl mx-auto px-5 py-5 flex flex-col gap-3 text-sm font-medium">
+                <a href="index.html" class="hover:text-purple-400 py-1">Home</a>
+                <a href="academic.html" class="hover:text-purple-400 py-1">Academic</a>
+                <a href="industry.html" class="hover:text-purple-400 py-1">Industry</a>
+                <a href="projects.html" class="hover:text-purple-400 py-1">Projects</a>
+                <a href="publications.html" class="hover:text-purple-400 py-1">Publications</a>
+                <a href="about.html" class="hover:text-purple-400 py-1">About</a>
+                <a href="contact.html" class="hover:text-purple-400 py-1">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section id="top" class="pt-32 pb-12 relative">
+        <div class="absolute inset-0 overflow-hidden pointer-events-none">
+            <div class="absolute top-20 left-1/3 w-[400px] h-[400px] bg-purple-600/10 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-0 right-1/4 w-[300px] h-[300px] bg-cyan-500/10 rounded-full blur-3xl"></div>
+        </div>
+
+        <div class="max-w-3xl mx-auto px-6 relative z-10 fade-in">
+            <p class="text-cyan-400 text-xs font-medium tracking-widest uppercase mb-4">About</p>
+            <h1 class="text-4xl md:text-5xl font-extrabold mb-6 tracking-tight">
+                A short <span class="gradient-text">story</span>
+            </h1>
+        </div>
+    </section>
+
+    <!-- Main text -->
+    <section class="pb-16">
+        <div class="max-w-3xl mx-auto px-6">
+            <div class="space-y-6 text-slate-300 leading-relaxed fade-in">
+                <p>
+                    I started in chemistry. Not because I planned to, but because it was the subject I could sit with for hours without noticing. That lasted through my BSc, until I discovered that the problems I found most interesting — how populations of neurons encode something as ordinary as a repeated image — were not really chemistry problems at all.
+                </p>
+
+                <p>
+                    So I moved. Slowly at first, then more deliberately, into computational neuroscience. I completed certified training through Neuromatch Academy and wrote a thesis on how neural representations reorganize and stabilize when the same visual experience is repeated. It was a small study, but it taught me what real computational work feels like: messy data, ambiguous results, and the constant temptation to over-interpret.
+                </p>
+
+                <p>
+                    From there, the path has been less a straight line than a gradual widening. I now work across machine learning for biomedical and clinical data — single-cell transcriptomics, clinical prediction, biomedical language models — and I build the software infrastructure that makes those models testable, reusable, and honest about their limits.
+                </p>
+
+                <p>
+                    What connects all of it is a single question I keep returning to: <span class="text-white font-medium">how do we know a model is actually right?</span> Not just accurate on a benchmark — right in the ways that matter. That question shapes how I evaluate models, how I document them, and how I write the code around them.
+                </p>
+
+                <p>
+                    I'm currently looking for a PhD position where I can pursue this question seriously — in a group that takes model reliability, reproducibility, and biomedical applications as real problems, not afterthoughts.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Beyond Research -->
+    <section class="py-16 bg-slate-900/40">
+        <div class="max-w-3xl mx-auto px-6">
+            <div class="fade-in">
+                <h2 class="text-2xl font-bold mb-6 flex items-center gap-3">
+                    <span class="w-1 h-6 bg-gradient-to-b from-purple-500 to-cyan-500 rounded"></span>
+                    Beyond Research
+                </h2>
+
+                <p class="text-slate-300 leading-relaxed mb-8">
+                    Outside of research, I write screenplays and short stories (some published), design and build websites, and work on graphic design and painting. Cooking and baking are how I switch off — and how I keep learning that patience and precision matter as much in the kitchen as in a pipeline.
+                </p>
+
+                <div class="grid sm:grid-cols-2 gap-5">
+                    <div class="glass rounded-xl p-5">
+                        <div class="text-2xl mb-3">✍️</div>
+                        <h3 class="font-medium text-sm mb-2">Writing</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed">Screenplays, short stories, and the occasional essay. A separate habit from code, but the same discipline of trimming what doesn't carry weight.</p>
+                    </div>
+
+                    <div class="glass rounded-xl p-5">
+                        <div class="text-2xl mb-3">🎨</div>
+                        <h3 class="font-medium text-sm mb-2">Design & Web</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed">Building and designing websites, including <a href="https://sepidehbio.github.io/CompBio-Brief/" class="text-cyan-400 hover:underline" target="_blank" rel="noopener">CompBio Brief</a>. Graphic design and painting, mostly for the pleasure of making something with my hands.</p>
+                    </div>
+
+                    <div class="glass rounded-xl p-5">
+                        <div class="text-2xl mb-3">🍰</div>
+                        <h3 class="font-medium text-sm mb-2">Cooking & Baking</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed">A way to switch off, and a surprisingly good reminder that following a recipe carefully often matters more than improvising.</p>
+                    </div>
+
+                    <div class="glass rounded-xl p-5">
+                        <div class="text-2xl mb-3">🌍</div>
+                        <h3 class="font-medium text-sm mb-2">Languages</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed">Persian (native), English (fluent), and Danish (learning — slowly, but consistently).</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Note -->
+    <section class="py-16">
+        <div class="max-w-3xl mx-auto px-6">
+            <div class="fade-in">
+                <div class="glass rounded-xl p-6">
+                    <p class="text-slate-300 leading-relaxed">
+                        One small note: friends and family know me as <span class="text-purple-300 font-medium">Vania</span>. It's the name I grew up with at home. Everything on this site, in papers, and in the code is under <span class="text-white font-medium">Sepideh Karimi</span>.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-16 bg-slate-900/40">
+        <div class="max-w-xl mx-auto px-6 text-center fade-in">
+            <h2 class="text-2xl font-bold mb-4">If any of this resonates</h2>
+            <p class="text-slate-400 text-sm mb-8 leading-relaxed">
+                I am always happy to talk about model reliability, reproducible research software, or how to bridge computational methods with real biological problems.
+            </p>
+            <a href="contact.html" class="inline-block px-6 py-3 bg-gradient-to-r from-purple-600 to-cyan-500 rounded-full font-semibold text-sm glow hover:opacity-90 transition">
+                Get in touch
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 border-t border-white/10">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+            <p class="font-medium text-sm mb-1">Sepideh Moafi</p>
+            <p class="text-xs text-slate-500 mb-4">AI · Machine Learning · Research Software Engineering</p>
+            <div class="flex justify-center gap-5 text-xs text-slate-400 flex-wrap">
+                <a href="#" class="hover:text-white">GitHub</a>
+                <a href="https://huggingface.co/Sepideh2027" class="hover:text-white">HuggingFace</a>
+                <a href="#" class="hover:text-white">Scholar</a>
+                <a href="#" class="hover:text-white">ORCID</a>
+                <a href="mailto:#" class="hover:text-white">Email</a>
+            </div>
+            <p class="text-xs text-slate-600 mt-5">© 2026 Sepideh Moafi</p>
+        </div>
+    </footer>
+
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+        });
+
+        const fadeElements = document.querySelectorAll('.fade-in');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.1 });
+        fadeElements.forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
