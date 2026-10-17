@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Projects | Sepideh Moafi</title>
+    <meta name="description" content="Research and software projects by Sepideh Moafi — biomedical AI, genomics, reproducible pipelines, and machine learning evaluation.">
+    <meta name="author" content="Sepideh Moafi">
+
+    <link rel="canonical" href="https://sepideh-Moafi.github.io/projects.html">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sepideh-Moafi.github.io/projects.html">
+    <meta property="og:title" content="Projects | Sepideh Moafi">
+    <meta property="og:description" content="Research and software projects across biomedical AI, genomics, and reproducible machine learning.">
+
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>SK</text></svg>">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = { theme: { extend: { fontFamily: { inter: ['Inter', 'sans-serif'] } } } }
+    </script>
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0f172a; }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #8b5cf6, #06b6d4);
+            border-radius: 10px;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glass-hover:hover {
+            background: rgba(255, 255, 255, 0.07);
+            border-color: rgba(139, 92, 246, 0.25);
+            transform: translateY(-2px);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #c4b5fd, #22d3ee);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .glow { box-shadow: 0 0 30px rgba(139, 92, 246, 0.3); }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+        @media (prefers-reduced-motion: reduce) {
+            .fade-in { opacity: 1; transform: none; transition: none; }
+            html { scroll-behavior: auto; }
+        }
+
+        .nav-link.active { color: #c4b5fd; }
+
+        a:focus-visible, button:focus-visible {
+            outline: 2px solid #a78bfa;
+            outline-offset: 3px;
+        }
+
+        /* Filter buttons */
+        .filter-btn {
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: #94a3b8;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+        .filter-btn:hover {
+            background: rgba(255, 255, 255, 0.07);
+            color: #e2e8f0;
+        }
+        .filter-btn.active {
+            background: linear-gradient(135deg, #8b5cf6, #06b6d4);
+            color: white;
+            border-color: transparent;
+        }
+
+        .project-card.hidden { display: none; }
+    </style>
+</head>
+<body class="bg-slate-950 text-white">
+
+    <a href="#top" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-purple-600 text-white px-4 py-2 rounded z-50">
+        Skip to content
+    </a>
+
+    <!-- Header -->
+    <header class="fixed top-0 w-full z-50 glass">
+        <div class="max-w-6xl mx-auto px-5 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-lg font-semibold tracking-tight">
+                <span class="text-white">Sepideh</span> <span class="gradient-text">Karimi</span>
+            </a>
+
+            <nav class="hidden md:flex items-center gap-7 text-sm font-medium">
+                <a href="index.html" class="nav-link hover:text-purple-300 transition">Home</a>
+                <a href="academic.html" class="nav-link hover:text-purple-300 transition">Academic</a>
+                <a href="industry.html" class="nav-link hover:text-purple-300 transition">Industry</a>
+                <a href="projects.html" class="nav-link active hover:text-purple-300 transition">Projects</a>
+                <a href="publications.html" class="nav-link hover:text-purple-300 transition">Publications</a>
+                <a href="about.html" class="nav-link hover:text-purple-300 transition">About</a>
+                <a href="contact.html" class="px-5 py-2 bg-gradient-to-r from-purple-600 to-cyan-500 rounded-full text-sm font-semibold hover:opacity-90 transition">
+                    Contact
+                </a>
+            </nav>
+
+            <button id="menu-btn" class="md:hidden p-2 rounded-lg hover:bg-white/10 transition" aria-label="Open menu">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+            </button>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full glass border-t border-white/10">
+            <nav class="max-w-6xl mx-auto px-5 py-5 flex flex-col gap-3 text-sm font-medium">
+                <a href="index.html" class="hover:text-purple-400 py-1">Home</a>
+                <a href="academic.html" class="hover:text-purple-400 py-1">Academic</a>
+                <a href="industry.html" class="hover:text-purple-400 py-1">Industry</a>
+                <a href="projects.html" class="hover:text-purple-400 py-1">Projects</a>
+                <a href="publications.html" class="hover:text-purple-400 py-1">Publications</a>
+                <a href="about.html" class="hover:text-purple-400 py-1">About</a>
+                <a href="contact.html" class="hover:text-purple-400 py-1">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section id="top" class="pt-32 pb-10 relative">
+        <div class="absolute inset-0 overflow-hidden pointer-events-none">
+            <div class="absolute top-20 left-1/3 w-[400px] h-[400px] bg-purple-600/10 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-0 right-1/4 w-[300px] h-[300px] bg-cyan-500/10 rounded-full blur-3xl"></div>
+        </div>
+
+        <div class="max-w-4xl mx-auto px-6 relative z-10 fade-in">
+            <p class="text-cyan-400 text-xs font-medium tracking-widest uppercase mb-4">Projects</p>
+            <h1 class="text-4xl md:text-5xl font-extrabold mb-5 tracking-tight">
+                Things I've <span class="gradient-text">built</span>
+            </h1>
+            <p class="text-slate-300 text-base md:text-lg leading-relaxed max-w-3xl mb-8">
+                Research software, machine learning pipelines, and small tools — mostly for biological and clinical data. Each project below is something I designed, wrote, tested, and tried to make reproducible.
+            </p>
+        </div>
+    </section>
+
+    <!-- Filters -->
+    <section class="pb-8">
+        <div class="max-w-6xl mx-auto px-6 fade-in">
+            <div class="flex flex-wrap gap-2 justify-center" id="filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="biomedical-ai">Biomedical AI</button>
+                <button class="filter-btn" data-filter="genomics">Genomics</button>
+                <button class="filter-btn" data-filter="trustworthy">Trustworthy ML</button>
+                <button class="filter-btn" data-filter="benchmarking">Benchmarking</button>
+                <button class="filter-btn" data-filter="llm">LLMs</button>
+                <button class="filter-btn" data-filter="rse">RSE</button>
+                <button class="filter-btn" data-filter="web">Web</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Grid -->
+    <section class="pb-20">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="projects-grid">
+
+                <!-- LongiHealth -->
+                <div class="project-card glass glass-hover rounded-2xl p-6 transition duration-300 flex flex-col fade-in"
+                     data-tags="biomedical-ai rse">
+                    <h3 class="font-semibold text-lg mb-1">LongiHealth</h3>
+                    <p class="text-xs text-purple-300 mb-3">Reproducible ML for Hospital Outcome Prediction</p>
+                    <p class="text-slate-400 text-sm mb-4 flex-1 leading-relaxed">
+                        A reproducible workflow for hospital outcome prediction using a demonstration dataset. Explicit preprocessing, leakage-aware design, automated testing, and containerization. The goal is to make the modelling process inspectable and to document its limitations honestly.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="text-xs px-2 py-0.5 bg-white/5 rounded-full">Python</span>
+                        <span class="text-xs px-2 py-0.5 bg-white/5 rounded-full">scikit-learn</span>
+                        <span class="text-xs px-2 py-0.5 bg-white/5 rounded-full">Docker</span>
+                        <span class="text-xs px-2 py-0.5 bg-white/5 rounded-full">pytest</span>
+                    </div>
+                    <p class="text-xs text-slate-500">Research prototype · not for clinical use</p>
+                </div>
+
+                <!-- VariantLens -->
+                <div class="project-card glass glass-hover rounded-2xl p-6 transition duration-300 flex flex-col fade-in"
+                     data-tags="genomics rse">
+                    <h3 class="font-semibold text-lg mb-1">VariantLens</h3>
+                    <p class="text-xs text-purple-300 mb-3">Evidence Retrieval for Rare Disease Variant Analysis</p>
+                    <p class="text-slate-400 text-sm mb-4 flex-1 leading-relaxed">
+                        A command-line tool that combines variant input handling with evidence retrieval from ClinVar, gnomAD, MyVariant.info, and PubMed. Built to support computational investigation, not to replace clinical or genetic interpretation.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="text-xs px-2 py-0.5 bg-white/5 rounded-full">Python</span>
+                        <span class="text-xs px-2 py-0.5 bg-white/5 rounded-full">CLI</span>
+                        <span class="text-xs px-2 py-0.5 bg-white/5 rounded-full">ClinVar</span>
+                        <span class="text-xs px-2 py-0.5 bg-white/5 rounded-full">gnomAD</span>
+                    </div>
+                    <p class="text-xs text-slate-500">Research software prototype</p>
+                </div>
+
+                <!-- SpatialPath -->
+                <div class="project-card glass glass-hover rounded-2xl p-6 transition duration-300 flex flex-col fade-in"
+                     data-tags="biomedical-ai rse">
+                    <h3 class="font-semibold text-lg mb-1">SpatialPath</h3>
+                    <p class="text-xs text-purple-300 mb-3">Reproducible Pipeline for Spatial Transcriptomics</p>
+                    <p class="text-slate-400 text-sm mb-4 flex-1 leading-relaxed">
+                        End-to-end pipeline for 10x Visium data — quality control, normalization, PCA, Leiden clustering, Wilcoxon marker detection, and ridge-regression deconvolution. Validated on the 10x Genomics Human Breast Cancer dataset (4,869 spots, 21,349 genes).
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="text-xs px-2 py-0.5 bg-white/5 rounded-full">Scanpy</span>
+                        <span class="text-xs px-2 py-0.5 bg-white/5 rounded-full">Squidpy</span>
+                        <span class="text-xs px-2 py-0.5 bg-white/5 rounded-full">Docker</span>
+                        <span class="text-xs px-2 py-0.5 bg-white/5 rounded-full">GitHub Actions</span>
+                    </div>
+                    <p class="text-xs text-slate-500">Manuscript ready for submission</p>
+                </div>
+
+                <!-- ClinShift -->
+                <div class="project-card glass glass-hover rounded-2xl p-6 transition duration-300 flex flex-col fade-in"
+                     data-tags="trustworthy biomedical-ai rse">
+                    <h3 class="font-semibold text-lg mb-1">ClinShift</h3>
+                    <p class="text-xs text-purple-300 mb-3">Robustness & Calibration under Cross-Site Shift</p>
+                    <p class="text-slate-400 text-sm mb-4 flex-1 leading-relaxed">
+                        A study of how discrimination and calibration move independently when clinical models transfer between sites. Found that at one site, AUROC improved from 0.73 to 0.77 while Expected Calibration Error rose from 0.06 to 0.29.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="text-xs px-2 py-0.5 bg-white/5 rounded-full">scikit-learn</span>
+                        <span class="text-xs px-2 py-0.5 bg-white/5 rounded-full">NumPy</span>
+                        <span class="text-xs px-2 py-0.5 bg-white/5 rounded-full">GitHub Actions</span>
+                    </div>
+                    <p class="text-xs text-slate-500">Manuscript ready for submission</p>
+                </div>
+
+                <!-- scp-bench -->
+                <div class="project-card glass glass-hover rounded-2xl p-6 transition duration-300 flex flex-col fade-in"
+                     data-tags="benchmarking biomedical-ai rse">
+                    <h3 class="font-semibold text-lg mb-1">scp-bench</h3>
+                    <p class="text-xs text-purple-300 mb-3">Benchmarking Framework for Single-Cell ML</p>
+                    <p class="text-slate-400 text-sm mb-4 flex-1 leading-relaxed">
+                        A benchmarking framework for evaluating machine learning models on single-cell data, with careful attention to evaluation design, dataset splits, and metric reporting.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="text-xs px-2 py-0.5 bg-white/5 rounded-full">Python</span>
+                        <span class="text-xs px-2 py-0.5 bg-white/5 rounded-full">Scanpy</span>
+                        <span class="text-xs px-2 py-0.5 bg-white/5 rounded-full">pytest</span>
+                    </div>
+                    <p class="text-xs text-slate-500">Open source · CI + Docker</p>
+                </div>
+
+                <!-- SelfAwareLLM-Med -->
+                <div class="project-card glass glass-hover rounded-2xl p-6 transition duration-300 flex flex-col fade-in"
+                     data-tags="llm biomedical-ai rse">
+                    <h3 class="font-semibold text-lg mb-1">SelfAwareLLM-Med</h3>
+                    <p class="text-xs text-purple-300 mb-3">Reliability of Medical Language Models</p>
+                    <p class="text-slate-400 text-sm mb-4 flex-1 leading-relaxed">
+                        Tests whether semantic self-consistency across multiple LLM generations predicts correctness on USMLE-style questions. Consistency correlates with accuracy (ρ = 0.29–0.36) but negatively with ROUGE-L, suggesting ROUGE-L is not a valid proxy for medical correctness.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="text-xs px-2 py-0.5 bg-white/5 rounded-full">Python</span>
+                        <span class="text-xs px-2 py-0.5 bg-white/5 rounded-full">Ollama</span>
+                        <span class="text-xs px-2 py-0.5 bg-white/5 rounded-full">pytest</span>
+                        <span class="text-xs px-2 py-0.5 bg-white/5 rounded-full">GitHub Actions</span>
+                    </div>
+                    <p class="text-xs text-slate-500">40+ tests · full pipeline in CI</p>
+                </div>
+
+                <!-- CompBio Brief -->
+                <div class="project-card glass glass-hover rounded-2xl p-6 transition duration-300 flex flex-col fade-in"
+                     data-tags="web genomics">
+                    <h3 class="font-semibold text-lg mb-1">CompBio Brief</h3>
+                    <p class="text-xs text-purple-300 mb-3">Trilingual Open Resource for Computational Biology</p>
+                    <p class="text-slate-400 text-sm mb-4 flex-1 leading-relaxed">
+                        An open resource documenting practical knowledge in computational biology, bioinformatics, and biomedical data analysis. Available in English, Danish, and Persian — datasets, tutorials, and reproducible workflows.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="text-xs px-2 py-0.5 bg-white/5 rounded-full">HTML</span>
+                        <span class="text-xs px-2 py-0.5 bg-white/5 rounded-full">Tailwind</span>
+                        <span class="text-xs px-2 py-0.5 bg-white/5 rounded-full">GitHub Pages</span>
+                    </div>
+                    <a href="https://sepidehbio.github.io/CompBio-Brief/" class="text-xs text-cyan-400 hover:underline" target="_blank" rel="noopener">View site →</a>
+                </div>
+
+            </div>
+
+            <!-- No results message -->
+            <div id="no-results" class="hidden text-center text-slate-500 py-12 text-sm">
+                No projects found for this filter.
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-20 bg-slate-900/40">
+        <div class="max-w-xl mx-auto px-6 text-center fade-in">
+            <h2 class="text-2xl font-bold mb-4">Interested in any of these?</h2>
+            <p class="text-slate-400 text-sm mb-8 leading-relaxed">
+                I am happy to walk through the code, share design decisions, or discuss how these could be adapted for a different dataset.
+            </p>
+            <a href="contact.html" class="inline-block px-6 py-3 bg-gradient-to-r from-purple-600 to-cyan-500 rounded-full font-semibold text-sm glow hover:opacity-90 transition">
+                Get in touch
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 border-t border-white/10">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+            <p class="font-medium text-sm mb-1">Sepideh Karimi</p>
+            <p class="text-xs text-slate-500 mb-4">AI · Machine Learning · Research Software Engineering</p>
+            <div class="flex justify-center gap-5 text-xs text-slate-400 flex-wrap">
+                <a href="#" class="hover:text-white">GitHub</a>
+                <a href="https://huggingface.co/Sepideh2027" class="hover:text-white">HuggingFace</a>
+                <a href="#" class="hover:text-white">Scholar</a>
+                <a href="#" class="hover:text-white">ORCID</a>
+                <a href="mailto:#" class="hover:text-white">Email</a>
+            </div>
+            <p class="text-xs text-slate-600 mt-5">© 2026 Sepideh Karimi</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+        });
+
+        // Fade-in
+        const fadeElements = document.querySelectorAll('.fade-in');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.1 });
+        fadeElements.forEach(el => observer.observe(el));
+
+        // Filters
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+        const noResults = document.getElementById('no-results');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const filter = btn.dataset.filter;
+                let visibleCount = 0;
+
+                projectCards.forEach(card => {
+                    const tags = card.dataset.tags || '';
+                    if (filter === 'all' || tags.includes(filter)) {
+                        card.classList.remove('hidden');
+                        visibleCount++;
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                });
+
+                noResults.classList.toggle('hidden', visibleCount > 0);
+            });
+        });
+    </script>
+</body>
+</html>
